@@ -44,6 +44,22 @@ if (validation_errors()==null){
 		<script src="http://<?php echo  base_url() ; ?>assets/js/html5shiv.min.js"></script>
 		<script src="http://<?php echo  base_url() ; ?>assets/js/respond.min.js"></script>
 		<![endif]-->
+	<script>
+		function validateForm() {
+		    var x = document.forms["registerForm"]["password2"].value;
+				  var y = document.forms["registerForm"]["password"].value;
+		    if (x != y) {
+		        alert("passowrds doesnt match ");
+		        return false;
+		    }
+				else if (!document.getElementById('agreemnt').checked){
+					alert("You didnt accept the agreemnt ");
+					return false;
+
+				}
+		}
+		</script>
+
 	</head>
 
 	<body class="login-layout">
@@ -186,7 +202,7 @@ if (validation_errors()==null){
 											<div class="space-6"></div>
 											<p> Enter your details to begin: </p>
 
-											<form action="http://<?php echo base_url();  ?>index.php/user/create" method="post">
+											<form name="registerForm"  onsubmit="return validateForm()"  action="http://<?php echo base_url();  ?>index.php/user/create" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
@@ -211,13 +227,14 @@ if (validation_errors()==null){
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
+
+															<input  name="password2" type="password" class="form-control" placeholder="Repeat password" />
 															<i class="ace-icon fa fa-retweet"></i>
 														</span>
 													</label>
 
 													<label class="block">
-														<input type="checkbox" class="ace" />
+														<input type="checkbox" class="ace" id="agreemnt" />
 														<span class="lbl">
 															I accept the
 															<a href="#">User Agreement</a>

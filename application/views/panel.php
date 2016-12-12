@@ -71,7 +71,7 @@ if($this->session->userdata('logged_in'))
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="http://<?php echo base_url();  ?>index.php/user/panel" class="navbar-brand">
 						<small>
 							<i class="fa fa-bar-chart"></i>
 							Analyze Social Media
@@ -116,6 +116,8 @@ if($this->session->userdata('logged_in'))
 		</div>
 
 		<div class="main-container ace-save-state" id="main-container">
+
+
 			<script type="text/javascript">
 				try{ace.settings.loadState('main-container')}catch(e){}
 			</script>
@@ -179,6 +181,8 @@ if($this->session->userdata('logged_in'))
 			</div>
 
 			<div class="main-content">
+
+
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 						<ul class="breadcrumb">
@@ -189,9 +193,9 @@ if($this->session->userdata('logged_in'))
 							<li class="active">Dashboard</li>
 						</ul><!-- /.breadcrumb -->
 
-						 
-					</div>
 
+					</div>
+<center><font size="2000">Total <font color="LightBlue">Tweets</font> Collected Sofar : <br> 4573733 Tweet</font></center>
 			</div><!-- /.main-content -->
 
 			<div class="footer">

@@ -74,7 +74,7 @@ if($this->session->userdata('logged_in'))
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="http://<?php echo base_url();  ?>index.php/user/panel" class="navbar-brand">
 						<small>
 							<i class="fa fa-bar-chart"></i>
 							Analyze Social Media
@@ -194,7 +194,7 @@ if($this->session->userdata('logged_in'))
 							<li class="active">Retrieve Result  </li>
 						</ul><!-- /.breadcrumb -->
 
-						 
+
 					</div>
 
   <h1>-   Retrieve Queries </h1>

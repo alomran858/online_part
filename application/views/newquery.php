@@ -22,6 +22,8 @@ if($this->session->userdata('logged_in'))
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
+
+
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="http://<?php echo  base_url() ; ?>assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="http://<?php echo  base_url() ; ?>assets/font-awesome/4.5.0/css/font-awesome.min.css" />
@@ -71,7 +73,7 @@ if($this->session->userdata('logged_in'))
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="http://<?php echo base_url();  ?>index.php/user/panel" class="navbar-brand">
 						<small>
 							<i class="fa fa-bar-chart"></i>
 							Analyze Social Media
@@ -188,7 +190,7 @@ if($this->session->userdata('logged_in'))
 							<li class="active">Enter New Query </li>
 						</ul><!-- /.breadcrumb -->
 
-						 
+
 					</div>
 
   <h1>-   Enter New Query </h1>

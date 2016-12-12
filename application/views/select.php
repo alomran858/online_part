@@ -58,9 +58,67 @@ if($this->session->userdata('logged_in'))
 		<script src="http://<?php echo  base_url() ; ?>assets/js/html5shiv.min.js"></script>
 		<script src="http://<?php echo  base_url() ; ?>assets/js/respond.min.js"></script>
 		<![endif]-->
+
+
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+     <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+       <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+
+
+       <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+       <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+         <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+
+
+
+             <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+             <script type='text/javascript'>
+              google.charts.load('upcoming', {'packages': ['geochart']});
+              google.charts.setOnLoadCallback(drawMarkersMap);
+
+               function drawMarkersMap() {
+               var data = google.visualization.arrayToDataTable([
+                 ['Country',   'Population', 'Area Percentage'],
+                 ['France',  65700000, 50],
+                 ['Germany', 81890000, 27],
+                 ['Poland',  38540000, 23]
+               ]);
+
+               var options = {
+                 sizeAxis: { minValue: 0, maxValue: 100 },
+                 region: '155', // Western Europe
+                 displayMode: 'markers',
+                 colorAxis: {colors: ['#e7711c', '#4374e0']} // orange to blue
+               };
+
+               var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+               chart.draw(data, options);
+             };
+             </script>
+
+
+             <script src="http://code.highcharts.com/maps/highmaps.js"></script>
+
+
 	</head>
 
 	<body class="no-skin">
+
+
 		<div id="navbar" class="navbar navbar-default          ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
 				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -74,7 +132,7 @@ if($this->session->userdata('logged_in'))
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="http://<?php echo base_url();  ?>index.php/user/panel" class="navbar-brand">
 						<small>
 							<i class="fa fa-bar-chart"></i>
 							Analyze Social Media
@@ -193,7 +251,7 @@ if($this->session->userdata('logged_in'))
 							<li class="active">Retrive Topic Result </li>
 						</ul><!-- /.breadcrumb -->
 
-						
+
 					</div>
 
   <h1>-   Retrieve Queries </h1>
@@ -205,6 +263,8 @@ if($this->session->userdata('logged_in'))
 
          <td><strong>Query topic</strong></td>
          <td>Status</td>
+         <td>Number of Tweets</td>
+          <td>Number of Accounts</td>
        </tr>
         <?php foreach($queries as $query){?>
         <tr>
@@ -216,66 +276,211 @@ if($this->session->userdata('logged_in'))
               echo    '<span class="label label-sm label-success">Finished</span>';
                 }
                  ?></td>
+
+                 <th>
+                   30066 tweets
+                 </th>
+
+                 <th>
+                   6284 Accounts
+                 </th>
          </tr>
+
         <?php }?>
+
       </table>
 <center>
 
-<style>
-.image {
-   position: relative;
-   width: 100%; /* for IE 6 */
-}
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1"><h1>Emotions Map</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
 
-#riyadh {
-   font-size: 1.5em;
-   position: absolute;
-   top: 450px;
-   left: 130px;
-   width: 100%;
-}
 
-#jeddah {
-   font-size: 1.3em;
-   position: absolute;
-   top: 400px;
-   left: 10px;
-   width: 100%;
-}
 
-#dmmam {
-   font-size: 1.3em;
-   position: absolute;
-   top: 410px;
-   left: 200px;
-   width: 100%;
-}
 
-}
-</style>
+                  <style>
 
-<IMG SRC="http://<?php echo  base_url() ; ?>landing/img/map.png" height="420" width="420">
- <h2 id="riyadh">Riyadh  <br />50% :(</h2>
-<h2 id="jeddah">Jeddah  <br />80% :(</h2>
-<h2 id="dmmam">Dammam  <br />30% :(</h2>
-</center>
+
+                  #central {
+            position: fixed;
+            bottom: 30%;
+            left: 24%;
+            z-index: 20;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,.6);
+          }
+          #western {
+          position: absolute;
+          bottom: 27%;
+          left: 9%;
+          z-index: 20;
+          color: white;
+          text-shadow: 0 1px 2px rgba(0,0,0,.6);
+          }
+
+          #eastern {
+          position: absolute;
+          bottom: 18%;
+          right: -3%;
+          z-index: 20;
+          color: white;
+          text-shadow: 0 1px 2px rgba(0,0,0,.6);
+          }
+          #southern {
+          position: absolute;
+          bottom: 1%;
+          left: 21%;
+          z-index: 20;
+          color: white;
+          text-shadow: 0 1px 2px rgba(0,0,0,.6);
+          }
+
+          #northern {
+          position: absolute;
+          top: 15%;
+          left: 4%;
+          z-index: 20;
+          color: white;
+          text-shadow: 0 1px 2px rgba(0,0,0,.6);
+          }
+
+
+
+                  </style>
+
+
+
+                  <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                          <div class="item active">
+                          <img src="http://<?php echo base_url();  ?>/assets/images/gallery/map.png" alt="" class="img-responsive">
+                             <div class="jeddah">
+
+                             </div>
+                             <div class="carousel-caption" id="central">
+                          80% Sad
+                              <img src="http://<?php echo base_url();  ?>/assets/images/gallery/cry.svg" height="15" width="15" ?>
+                             </div>
+
+                             <div class="carousel-caption" id="western">
+                          55% happy
+                              <img src="http://<?php echo base_url();  ?>/assets/images/gallery/happy.svg" height="15" width="15" ?>
+                             </div>
+
+                             <div class="carousel-caption" id="eastern">
+                          55% angry
+                              <img src="http://<?php echo base_url();  ?>/assets/images/gallery/angry.svg" height="15" width="15" ?>
+                             </div>
+
+                             <div class="carousel-caption" id="southern">
+                          55% neutral
+                              <img src="http://<?php echo base_url();  ?>/assets/images/gallery/neutral.svg" height="15" width="15" ?>
+                             </div>
+
+                             <div class="carousel-caption" id="northern">
+                             64% fearful
+                              <img src="http://<?php echo base_url();  ?>/assets/images/gallery/fear.svg" height="15" width="15" ?>
+                             </div>
+
+                          </div>
+                      </div>
+                  </div>
+
+
+
+        </div>
+
+
+
+
+      </div>
+    </div>
   </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+    <div class="container">
+      <h1>Cites That Tweeted The Most :</h1>
+  <div id="citeschart" style="width:80%;height: 60vh;"></div>
+
+  <h1>Most Tweeted Time :</h1>
+  <div id="tweetschart"  style="width:80%;height:60vh;"></div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <div class="container">
+
+
+
+
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapse2"> <h1>10 Most Mentioned HashTags</h1>  </a>
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+
+
+              <p><font size="6">النصر</font>
+
+    <font size="2">الزعيم</font>
+
+    <font size="10">التحكيم</font>  &nbsp &nbsp &nbsp &nbsp &nbsp
+    <font size="2">اقيلوا_المدرب</font> &nbsp &nbsp &nbsp &nbsp
+    <font size="4">خسارة</font> &nbsp &nbsp &nbsp &nbsp
+    <font size="5">هدف</font> &nbsp &nbsp &nbsp &nbsp
+    <font size="2">ادارة</font><br>
+    <font size="8">المدرب</font> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <font size="1">المباراة</font> &nbsp &nbsp &nbsp &nbsp
+    <font size="10">تسلل</font> &nbsp &nbsp &nbsp &nbsp
+
+              </p>
+
+
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+</div>
+
+
+<br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br>
 			</div><!-- /.main-content -->
 
-			<div class="footer">
-				<div class="footer-inner">
-					<div class="footer-content">
-						<span class="bigger-120">
-							<span class="blue bolder">King Saud</span>
-						  Application &copy; 2016-2017
-						</span>
 
-						&nbsp; &nbsp;
 
-					</div>
-				</div>
-			</div>
+
 
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
@@ -313,6 +518,9 @@ if($this->session->userdata('logged_in'))
 		<!-- ace scripts -->
 		<script src="http://<?php echo  base_url() ; ?>assets/js/ace-elements.min.js"></script>
 		<script src="http://<?php echo  base_url() ; ?>assets/js/ace.min.js"></script>
+
+
+
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
@@ -533,5 +741,48 @@ if($this->session->userdata('logged_in'))
 
 			})
 		</script>
+
+
+    <script>
+
+
+
+  new  Morris.Bar({
+  element: 'tweetschart',
+  data: [
+    { y: '6AM', a: 300 },
+    { y: '9AM', a: 654 },
+    { y: '12PM', a: 456 },
+    { y: '3PM', a: 500 },
+    { y: '6PM', a: 550 },
+    { y: '9PM', a: 1000 },
+    { y: '12AM', a: 800 },
+    { y: '3AM', a: 120 }
+  ],
+  xkey: 'y',
+  ykeys: ['a'],
+  labels: ['Number of tweets']
+});
+
+new Morris.Donut({
+  element: 'citeschart',
+  data: [
+    {label: "Riyadh", value: 3000},
+    {label: "Jeddah", value: 2500},
+    {label: "Abha", value: 1450},
+     {label: "Braidah", value: 1300},
+     {label: "Almagmaa", value: 453},
+     {label: "Alkharj", value: 200},
+     {label: "Arar", value: 400},
+     {label: "Alquriat", value: 340},
+     {label: "Dammam", value: 2322},
+
+  ]
+});
+
+
+</script>
+
+
 	</body>
 </html>
